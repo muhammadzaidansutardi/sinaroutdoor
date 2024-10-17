@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Sewa peralatan camping terbaik di Cirebon, Indonesia. Tenda, sleeping bag, kompor portabel, dan berbagai alat camping lainnya untuk petualangan alam Anda." />
+    <meta name="keywords" content="sewa alat camping, rental camping Cirebon, tenda camping, kompor portabel, outdoor gear, alat hiking, sewa perlengkapan outdoor" />
+    <meta name="author" content="Sinar Outdoor Cirebon" />
+
+    <!-- Social Media Meta Tags (Open Graph for Facebook, Twitter Cards for Twitter) -->
+    <meta property="og:title" content="Sinar Outdoor Cirebon - Sewa Alat Camping Berkualitas" />
+    <meta property="og:description" content="Sewa berbagai alat camping berkualitas di Cirebon dengan harga terjangkau. Nikmati petualangan alam dengan perlengkapan terbaik." />
+    <meta property="og:image" content="URL_GAMBAR_PROMO" />
+    <!-- Ganti dengan link gambar promo Anda -->
+    <meta property="og:url" content="https://www.sinaroutdoorcirebon.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sinar Outdoor Cirebon - Sewa Alat Camping Berkualitas" />
+    <meta name="twitter:description" content="Sewa alat camping dan perlengkapan outdoor lainnya dengan harga terjangkau di Cirebon. Persiapkan petualangan Anda sekarang!" />
+    <meta name="twitter:image" content="URL_GAMBAR_PROMO" />
+    <!-- Ganti dengan link gambar promo Anda -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+    <title>Rental Alat Camping</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Google Fonts for outdoor vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <style>
+      body {
+        font-family: "Raleway", sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      /* Navbar Styling */
+      .navbar {
+        background-color: #3b5323;
+      }
+
+      .navbar-brand {
+        font-weight: bold;
+        color: #fff !important;
+        font-size: 1.5rem;
+      }
+
+      .navbar-nav .nav-link {
+        color: #fff !important;
+      }
+
+      /* Hero Section */
+      .hero {
+        background-image: url("https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80");
+        background-size: cover;
+        background-position: center;
+        height: 500px;
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+      }
+
+      .btn-primary {
+        background-color: #5a8457;
+        border-color: #5a8457;
+      }
+
+      .btn-primary:hover {
+        background-color: #486948;
+        border-color: #486948;
+      }
+
+      /* Promo Section */
+      .card {
+        background-color: #eae7dc;
+        border: none;
+      }
+
+      .card-title {
+        color: #3b5323;
+        font-weight: bold;
+      }
+
+      /* Product Card */
+      .product-card img {
+        height: 200px;
+        object-fit: cover;
+      }
+
+      /* Scrollable Catalog */
+      .catalog-scroll {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 20px 0;
+      }
+
+      .catalog-scroll::-webkit-scrollbar {
+        display: none;
+      }
+
+      .catalog-scroll .product-card {
+        flex: 0 0 auto;
+        margin: 10px;
+        max-width: 300px;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #3b5323;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      .footer a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      /* Custom Section Styling */
+      .container h2 {
+        color: #3b5323;
+        margin-bottom: 20px;
+      }
+
+      .container p {
+        color: #6b4226;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">Sinar Outdoor Cirebon</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#catalog">Katalog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Tentang Kami</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Kontak</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div>
+        <h1>Menyatu dengan Alam</h1>
+        <p>Sewa peralatan camping berkualitas dan nikmati petualangan alam Anda.</p>
+        <a href="#catalog" class="btn btn-primary">Lihat Katalog</a>
+      </div>
+    </section>
+
+    <!-- Promo Section -->
+    <section class="container py-5 text-center">
+      <h2>Promo & Diskon</h2>
+      <p>Dapatkan diskon menarik untuk penyewaan peralatan camping selama bulan ini!</p>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Diskon Tenda 20%</h5>
+              <p class="card-text">Diskon untuk semua jenis tenda hingga akhir bulan.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Promo Kompor Portabel</h5>
+              <p class="card-text">Sewa kompor dengan harga spesial untuk liburan.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Paket Hemat</h5>
+              <p class="card-text">Dapatkan paket lengkap dengan harga lebih terjangkau.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Katalog Produk -->
+    <section id="catalog" class="container py-5">
+      <h2 class="text-center mb-5">Katalog Alat Camping</h2>
+      <div class="catalog-scroll">
+        <!-- Product Card 1 -->
+        <div class="product-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6oi6mt0h5s5Z-B7_UxsoUVAsG8N32paGzpA&s" class="card-img-top" alt="Tenda Camping" />
+          <div class="card-body">
+            <h5 class="card-title">Tenda Camping</h5>
+            <p class="card-text">Tenda untuk 4 orang, tahan air, cocok untuk hiking dan camping.</p>
+            <p><strong>Harga: Rp 100.000/hari</strong></p>
+
+            <!-- Input Jumlah dan Durasi Sewa -->
+            <label for="quantity-tenda">Jumlah:</label>
+            <input type="number" id="quantity-tenda" min="1" value="1" class="form-control mb-2" style="width: 100px" />
+
+            <label for="duration-tenda">Durasi (hari):</label>
+            <input type="number" id="duration-tenda" min="1" value="1" class="form-control mb-2" style="width: 100px" />
+
+            <button class="btn btn-primary" onclick="addToCart(this)" data-product="Tenda Camping, Rp 100000" data-quantity-id="quantity-tenda" data-duration-id="duration-tenda">Tambah ke Keranjang</button>
+          </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="product-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRczP3rr8BPL-QsxRjb8po1k7jHbQyF1Zfv5A&s" class="card-img-top" alt="Sleeping Bag" />
+          <div class="card-body">
+            <h5 class="card-title">Sleeping Bag</h5>
+            <p class="card-text">Sleeping bag untuk cuaca dingin, ringan dan mudah dibawa.</p>
+            <p><strong>Harga: Rp 50.000/hari</strong></p>
+
+            <!-- Input Jumlah dan Durasi Sewa -->
+            <label for="quantity-sleepingbag">Jumlah:</label>
+            <input type="number" id="quantity-sleepingbag" min="1" value="1" class="form-control mb-2" style="width: 100px" />
+
+            <label for="duration-sleepingbag">Durasi (hari):</label>
+            <input type="number" id="duration-sleepingbag" min="1" value="1" class="form-control mb-2" style="width: 100px" />
+            <button class="btn btn-primary" onclick="addToCart(this)" data-product="Sleeping Bag, Rp 50000" data-quantity-id="quantity-sleepingbag" data-duration-id="duration-sleepingbag">Tambah ke Keranjang</button>
+          </div>
+        </div>
+        <!-- Add more product cards as needed -->
+      </div>
+    </section>
+
+    <!-- Modal Keranjang -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="cartModalLabel">Keranjang Sewa</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ul id="cart-items" class="list-group">
+              <!-- Produk yang ditambahkan akan muncul di sini -->
+            </ul>
+            <hr />
+            <h5>Informasi Pembayaran</h5>
+            <form id="paymentForm">
+              <div class="mb-3">
+                <label for="customerName" class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-control" id="customerName" placeholder="Masukkan Nama Lengkap" required />
+              </div>
+              <div class="mb-3">
+                <label for="customerPhone" class="form-label">Nomor HP</label>
+                <input type="tel" class="form-control" id="customerPhone" placeholder="Masukkan Nomor HP" required />
+              </div>
+              <div class="mb-3">
+                <label for="paymentMetho" class="form-label">Metode Pembayaran</label>
+                <select class="form-select" id="paymentMethod" required onchange="displayDanaInfo()">
+                  <option value="" disabled selected>Pilih Metode Pembayaran</option>
+                  <option value="DANA">Dana</option>
+                  <option value="Transfer Bank">Transfer Bank</option>
+                  <option value="Cash">Cash</option>
+                </select>
+              </div>
+              <!-- Input Kode Promo -->
+              <div class="mb-3">
+                <label for="promoCode" class="form-label">Kode Promo</label>
+                <input type="text" class="form-control" id="promoCode" placeholder="Masukkan Kode Promo" />
+                <button type="button" class="btn btn-primary mt-2" onclick="applyPromoCode()">Terapkan</button>
+                <div id="promo-feedback" style="color: red; display: none">Kode promo tidak valid!</div>
+              </div>
+
+              <h5>Total Harga: <span id="total-price">Rp 0</span></h5>
+              <h5>Diskon: <span id="discount-amount">Rp 0</span></h5>
+              <h5>Harga Setelah Diskon: <span id="final-price">Rp 0</span></h5>
+              <div id="dana-info" class="dana-info alert alert-info" style="display: none">
+                <h5><i class="bi bi-info-circle"></i> Informasi Pembayaran</h5>
+                <p>Silakan kirim pembayaran ke nomor DANA:</p>
+                <div class="alert alert-dark d-flex justify-content-between align-items-center">
+                  <strong>0895320024034</strong>
+                  <button class="btn btn-sm btn-light" onclick="copyToClipboard()">Salin Nomor</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            <button type="button" class="btn btn-primary" onclick="processCheckout()">Sewa Sekarang</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 Sinar Outdoor Cirebon | <a href="#">Kebijakan Privasi</a></p>
+    </footer>
+
+    <!-- Bootstrap JS, Popper.js, dan jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+      let cart = [];
+      let totalPrice = 0;
+      let discount = 0;
+      let finalPrice = 0;
+
+      function copyToClipboard() {
+        const text = "0895320024034"; // Nomor DANA yang akan disalin
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            alert("Nomor DANA berhasil disalin ke clipboard!");
+          })
+          .catch((err) => {
+            console.error("Gagal menyalin: ", err);
+          });
+      }
+
+      function addToCart(button) {
+        let productInfo = button.getAttribute("data-product").split(", ");
+        let productName = productInfo[0];
+        let productPricePerDay = parseInt(productInfo[1].replace("Rp ", "").replace("/hari", "").replace(".", ""));
+
+        // Ambil jumlah barang dan durasi sewa dari input
+        let quantityInputId = button.getAttribute("data-quantity-id");
+        let durationInputId = button.getAttribute("data-duration-id");
+
+        let quantity = parseInt(document.getElementById(quantityInputId).value);
+        let duration = parseInt(document.getElementById(durationInputId).value);
+
+        // Hitung total harga berdasarkan jumlah dan durasi sewa
+        let totalProductPrice = productPricePerDay * quantity * duration;
+
+        let product = {
+          id: cart.length + 1, // Menambahkan ID unik untuk setiap produk
+          name: productName,
+          pricePerDay: productPricePerDay,
+          quantity: quantity,
+          duration: duration,
+          totalPrice: totalProductPrice,
+        };
+
+        cart.push(product);
+
+        // Hitung biaya admin 1%
+        let adminFee = totalProductPrice * 0.01;
+
+        // Update total price dengan menambahkan harga produk dan biaya admin
+        totalPrice += totalProductPrice + adminFee;
+
+        updateCartUI();
+        $("#cartModal").modal("show");
+      }
+
+      function removeFromCart(productId) {
+        const productIndex = cart.findIndex((item) => item.id === productId);
+        if (productIndex >= 0) {
+          const removedProduct = cart.splice(productIndex, 1)[0]; // Menghapus produk dari array
+          const adminFee = removedProduct.totalPrice * 0.01; // Menghitung biaya admin untuk produk yang dihapus
+          totalPrice -= removedProduct.totalPrice + adminFee; // Mengurangi total harga dan biaya admin
+
+          updateCartUI(); // Memperbarui tampilan keranjang
+        }
+      }
+
+      function updateCartUI() {
+        let cartItems = document.getElementById("cart-items");
+        let totalPriceElement = document.getElementById("total-price");
+        let finalPriceElement = document.getElementById("final-price");
+        let discountAmountElement = document.getElementById("discount-amount");
+
+        cartItems.innerHTML = "";
+
+        cart.forEach((item) => {
+          let listItem = document.createElement("li");
+          listItem.className = "list-group-item d-flex justify-content-between align-items-center";
+
+          listItem.innerHTML = `
+        ${item.quantity}x ${item.name} - Durasi: ${item.duration} hari - Rp ${item.totalPrice.toLocaleString()}
+        <button class="btn btn-danger btn-sm ms-2" onclick="removeFromCart(${item.id})">Hapus</button>
+      `;
+
+          cartItems.appendChild(listItem);
+        });
+
+        totalPriceElement.textContent = `Rp ${totalPrice.toLocaleString()}`;
+        discountAmountElement.textContent = `Rp ${discount.toLocaleString()}`;
+        finalPriceElement.textContent = `Rp ${(totalPrice - discount).toLocaleString()}`;
+      }
+
+      function displayDanaInfo() {
+        const paymentMethod = document.getElementById("paymentMethod").value;
+        const danaInfo = document.getElementById("dana-info");
+
+        if (paymentMethod === "DANA") {
+          danaInfo.style.display = "block";
+        } else {
+          danaInfo.style.display = "none";
+        }
+      }
+
+      function applyPromoCode() {
+        const promoCode = document.getElementById("promoCode").value;
+        const validPromoCode = "PROMO20"; // Kode promo yang valid
+        const promoFeedback = document.getElementById("promo-feedback");
+
+        if (promoCode === validPromoCode) {
+          discount = totalPrice * 0.2; // Diskon 20%
+          promoFeedback.style.display = "none"; // Sembunyikan feedback error
+        } else {
+          discount = 0; // Tidak ada diskon jika kode tidak valid
+          promoFeedback.style.display = "block"; // Tampilkan feedback error
+        }
+
+        // Update UI setelah memasukkan kode promo
+        updateCartUI();
+      }
+
+      function generatePDF(customerName, customerPhone, paymentMethod, finalPrice) {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Header
+        doc.setFontSize(20);
+        doc.text("Invoice Sewa Peralatan Camping", 105, 20, null, null, "center");
+
+        // Subjudul
+        doc.setFontSize(12);
+        doc.text("Terima kasih atas pesanan Anda!", 105, 30, null, null, "center");
+
+        // Garis pembatas
+        doc.setLineWidth(0.5);
+        doc.line(20, 35, 190, 35);
+
+        // Informasi Toko
+        doc.setFontSize(10);
+        doc.text("Sinar Outdoor Cirebon", 20, 45);
+        doc.text("Jl. Kayuwalang RT.04/RW.07", 20, 50);
+        doc.text("Telp: 083162645752", 20, 55);
+        doc.text("Email: info@sinaroutdoor.xyz", 20, 60);
+
+        // Informasi Pelanggan
+        doc.setFontSize(12);
+        doc.text("Informasi Pelanggan:", 20, 75);
+        doc.setFontSize(10);
+        doc.text(`Nama: ${customerName}`, 20, 85);
+        doc.text(`Nomor HP: ${customerPhone}`, 20, 90);
+        doc.text(`Metode Pembayaran: ${paymentMethod}`, 20, 95);
+        doc.text(`Status: Pending Confirmation`, 20, 100);
+
+        // Garis pembatas lagi
+        doc.line(20, 105, 190, 105);
+
+        // Daftar Barang yang Dipesan
+        doc.setFontSize(12);
+        doc.text("Detail Pesanan:", 20, 115);
+
+        let yPosition = 125;
+        let totalItems = 0; // Menyimpan jumlah total barang yang dipesan
+
+        cart.forEach((item, index) => {
+          doc.setFontSize(10);
+
+          // Menampilkan detail produk (nama, jumlah, durasi, harga per hari)
+          doc.text(`${index + 1}. ${item.name} x${item.quantity} Durasi: ${item.duration} Hari`, 20, yPosition); // Nama produk, jumlah, dan durasi peminjaman
+          doc.text(`Rp ${item.pricePerDay.toLocaleString("id-ID")}`, 160, yPosition, null, null, "right"); // Harga per hari
+          yPosition += 10;
+
+          // Menambah jumlah barang yang dipesan
+          totalItems += item.quantity;
+        });
+
+        // Garis pembatas total
+        doc.line(20, yPosition, 190, yPosition);
+        yPosition += 10;
+
+        // Menampilkan jumlah total barang yang dipesan
+        doc.setFontSize(12);
+        doc.text(`Jumlah Barang: ${totalItems}`, 20, yPosition);
+        yPosition += 10;
+
+        // Tampilkan harga final (sama dengan yang ada di form)
+        doc.text("Total Harga Final:", 20, yPosition);
+        doc.setFontSize(12);
+
+        // Ubah `finalPrice` menjadi format Rupiah dengan benar
+        const finalPriceFormatted = finalPrice.toLocaleString("id-ID");
+        doc.text(`Rp ${finalPriceFormatted}`, 160, yPosition, null, null, "right");
+        yPosition += 10;
+
+        // Footer
+        doc.setLineWidth(0.5);
+        doc.line(20, yPosition + 20, 190, yPosition + 20);
+
+        doc.setFontSize(10);
+        doc.text("Sinar Outdoor Cirebon", 105, yPosition + 30, null, null, "center");
+        doc.text("Terima kasih atas kepercayaan Anda!", 105, yPosition + 35, null, null, "center");
+
+        // Unduh PDF
+        doc.save("invoice_sewa.pdf");
+      }
+
+      function processCheckout() {
+        const customerName = document.getElementById("customerName").value;
+        const customerPhone = document.getElementById("customerPhone").value;
+        const paymentMethod = document.getElementById("paymentMethod").value;
+
+        // Ambil harga final dari form (harga yang sudah terupdate dengan diskon dan admin fee)
+        const finalPriceText = document.getElementById("final-price").textContent;
+        const finalPrice = parseFloat(finalPriceText.replace(/[^0-9,]/g, "").replace(",", "."));
+
+        // Pastikan finalPrice sudah dihitung dan format sesuai
+        console.log(finalPrice); // Debug log untuk memastikan nilai finalPrice
+
+        // Menyusun pesan konfirmasi checkout
+        let message = `
+      Terima kasih, ${customerName}!
+      Anda telah memilih metode pembayaran ${paymentMethod}.
+      `;
+
+        // Menampilkan nomor rekening atau DANA jika metode pembayaran DANA
+        if (paymentMethod === "DANA") {
+          message += `
+          Silahkan transfer ke akun DANA: 0895320024034.
+          Setelah transfer, konfirmasi ke admin via WA: 083162645752.
+          `;
+        } else if (paymentMethod === "Bank Transfer") {
+          message += `
+          Silahkan transfer ke rekening: 123-456-7890 (BCA).
+          Setelah transfer, konfirmasi ke admin via WA: 083162645752.
+          `;
+        }
+
+        // Pastikan semua informasi terisi
+        if (customerName && customerPhone && paymentMethod) {
+          // SweetAlert untuk konfirmasi berhasil
+          Swal.fire({
+            title: "Terima Kasih!",
+            text: message,
+            icon: "success",
+            confirmButtonText: "OK",
+          }).then(() => {
+            // Setelah konfirmasi, buat PDF checkout menggunakan harga final
+            generatePDF(customerName, customerPhone, paymentMethod, finalPrice); // Passing finalPrice ke PDF
+
+            // Reset form dan keranjang setelah berhasil checkout
+            document.getElementById("paymentForm").reset();
+            cart = [];
+            totalPrice = 0;
+            discount = 0; // Reset diskon setelah checkout
+            updateCartUI();
+            $("#cartModal").modal("hide");
+
+            if (paymentMethod == "Cash") {
+              const whatsappMessage = encodeURIComponent(`Halo Admin, saya ${customerName}, akan melakukan pembayaran dengan metode ${paymentMethod}.`);
+              const whatsappURL = `https://wa.me/6283162645752?text=${whatsappMessage}`;
+              window.open(whatsappURL, "_blank"); // Membuka WhatsApp
+            } else {
+              // Setelah generate PDF, arahkan pengguna ke WhatsApp untuk konfirmasi ke admin
+              const whatsappMessage = encodeURIComponent(`Halo Admin, saya ${customerName}, sudah melakukan pembayaran dengan metode ${paymentMethod}.`);
+              const whatsappURL = `https://wa.me/6283162645752?text=${whatsappMessage}`;
+              window.open(whatsappURL, "_blank"); // Membuka WhatsApp
+            }
+          });
+        } else {
+          Swal.fire({
+            title: "Oops!",
+            text: "Harap lengkapi semua informasi pembayaran.",
+            icon: "error",
+            confirmButtonText: "OK",
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
