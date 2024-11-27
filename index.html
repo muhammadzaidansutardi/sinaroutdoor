@@ -51,28 +51,43 @@
         color: #fff !important;
       }
 
-      /* Hero Section */
-      .hero {
-        background-image: url("https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80");
-        background-size: cover;
-        background-position: center;
-        height: 500px;
-        color: white;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+     /* Hero Section */
+.hero {
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: background-image 1s ease-in-out;
+}
 
-      .hero h1 {
-        font-size: 3.5rem;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-      }
+.hero h1 {
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
 
-      .hero p {
-        font-size: 1.5rem;
-        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-      }
+.hero p {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Styling for button */
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
 
       .btn-primary {
         background-color: #5a8457;
@@ -173,12 +188,13 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <div>
-        <h1>Menyatu dengan Alam</h1>
-        <p>Sewa peralatan camping berkualitas dan nikmati petualangan alam Anda.</p>
-        <a href="#catalog" class="btn btn-primary">Lihat Katalog</a>
-      </div>
-    </section>
+  <div>
+    <h1>Menyatu dengan Alam</h1>
+    <p>Sewa peralatan camping berkualitas dan nikmati petualangan alam Anda.</p>
+    <a href="#catalog" class="btn btn-primary">Lihat Katalog</a>
+  </div>
+</section>
+
 
     <!-- Promo Section -->
     <section class="container py-5 text-center">
@@ -789,5 +805,28 @@ updateCartUI();
         }
       }
     </script>
+    <script>
+  // Array of image URLs for the slideshow
+  const images = [
+    "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80",
+    "https://images.unsplash.com/photo-1479924720858-e36ab9cb65be?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGNhbXBpbmd8ZW58MHx8fHwxNjY1MTAwNTQ&ixlib=rb-1.2.1&q=80&w=1080",
+    "https://images.unsplash.com/photo-1512062114267-5630a08b6e74?crop=entropy&cs=tinysrgb&fit=max&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDN8fGNhbXBpbmd8ZW58MHx8fHwxNjY1MTAwNTQ&ixlib=rb-1.2.1&q=80&w=1080"
+  ];
+
+  let currentImageIndex = 0;
+
+  // Function to change background image
+  function changeBackgroundImage() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    document.querySelector('.hero').style.backgroundImage = `url('${images[currentImageIndex]}')`;
+  }
+
+  // Change image every 15 seconds
+  setInterval(changeBackgroundImage, 15000);
+
+  // Initial background image
+  changeBackgroundImage();
+</script>
+
   </body>
 </html>
