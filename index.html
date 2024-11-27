@@ -607,17 +607,22 @@
       }
 
       function applyPromoCode() {
-        const promoCode = document.getElementById("promoCode").value;
-        const validPromoCode = "AKHIRTAHUN24"; // Kode promo yang valid
-        const promoFeedback = document.getElementById("promo-feedback");
+      const promoCode = document.getElementById("promoCode").value;
+      const validPromoCode = "AKHIRTAHUN24"; // Kode promo yang valid
+      const promoFeedback = document.getElementById("promo-feedback");
+      
+      if (promoCode === validPromoCode) {
+        // Generate diskon acak antara 0% hingga 20%
+        discount = totalPrice * (Math.random() * 0.2); // Math.random() menghasilkan angka acak antara 0 dan 1, dikalikan 0.2 untuk rentang 0-20%
+        promoFeedback.style.display = "none"; // Sembunyikan feedback error
+      } else {
+        discount = 0; // Tidak ada diskon jika kode tidak valid
+        promoFeedback.style.display = "block"; // Tampilkan feedback error
+      }
 
-        if (promoCode === validPromoCode) {
-          discount = totalPrice * 0.2; // Diskon 20%
-          promoFeedback.style.display = "none"; // Sembunyikan feedback error
-        } else {
-          discount = 0; // Tidak ada diskon jika kode tidak valid
-          promoFeedback.style.display = "block"; // Tampilkan feedback error
-        }
+// Update UI setelah memasukkan kode promo
+updateCartUI();
+
 
         // Update UI setelah memasukkan kode promo
         updateCartUI();
