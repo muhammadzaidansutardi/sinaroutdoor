@@ -222,7 +222,7 @@
           <div class="card-body">
             <h5 class="card-title">Tenda Camping</h5>
             <p class="card-text">Tenda untuk 4 orang, tahan air, cocok untuk hiking dan camping.</p>
-            <p><strong>Harga: Rp 30.000/hari</strong></p>
+            <p><strong>Harga: Rp 35.000/hari</strong></p>
 
             <!-- Input Jumlah dan Durasi Sewa -->
             <label for="quantity-tenda">Jumlah:</label>
@@ -231,7 +231,26 @@
             <label for="duration-tenda">Durasi (hari):</label>
             <input type="number" id="duration-tenda" min="1" value="1" class="form-control mb-2" style="width: 100px" />
 
-            <button class="btn btn-primary" onclick="addToCart(this)" data-product="Tenda Camping, Rp 30000" data-quantity-id="quantity-tenda" data-duration-id="duration-tenda">Tambah ke Keranjang</button>
+            <button class="btn btn-primary" onclick="addToCart(this)" data-product="Tenda Camping, Rp 35000" data-quantity-id="quantity-tenda" data-duration-id="duration-tenda">Tambah ke Keranjang</button>
+          </div>
+        </div>
+
+        <!-- Product Card 1 -->
+        <div class="product-card card">
+          <img src="https://images.tokopedia.net/img/cache/900/hDjmkQ/2023/10/20/e2dae4d6-5f5f-4faf-bffb-a9c3c33a0033.jpg" class="card-img-top" alt="Tenda Camping" />
+          <div class="card-body">
+            <h5 class="card-title">Tenda Camping</h5>
+            <p class="card-text">Tenda untuk 3 orang, tahan air, cocok untuk hiking dan camping.</p>
+            <p><strong>Harga: Rp 30.000/hari</strong></p>
+
+            <!-- Input Jumlah dan Durasi Sewa -->
+            <label for="quantity-tenda3">Jumlah:</label>
+            <input type="number" id="quantity-tenda3" min="1" value="1" class="form-control mb-2" style="width: 100px" />
+
+            <label for="duration-tenda3">Durasi (hari):</label>
+            <input type="number" id="duration-tenda3" min="1" value="1" class="form-control mb-2" style="width: 100px" />
+
+            <button class="btn btn-primary" onclick="addToCart(this)" data-product="Tenda Camping, Rp 30000" data-quantity-id="quantity-tenda3" data-duration-id="duration-tenda3">Tambah ke Keranjang</button>
           </div>
         </div>
 
@@ -327,7 +346,7 @@
         <div class="product-card card">
           <img src="https://down-id.img.susercontent.com/file/238c2bda04cbcd2eda81323da526669b" class="card-img-top" alt="Sleeping Bag" />
           <div class="card-body">
-            <h5 class="card-title">Nesting</h5>
+            <h5 class="card-title">Meja Lipat</h5>
             <p class="card-text">Meja Lipat untuk duduk bersantai disaat beraktifitas di luar ruangan</p>
             <p><strong>Harga: Rp 15.000/Hari</strong></p>
 
@@ -589,7 +608,7 @@
 
       function applyPromoCode() {
         const promoCode = document.getElementById("promoCode").value;
-        const validPromoCode = "PROMO20"; // Kode promo yang valid
+        const validPromoCode = "AKHIRTAHUN24"; // Kode promo yang valid
         const promoFeedback = document.getElementById("promo-feedback");
 
         if (promoCode === validPromoCode) {
